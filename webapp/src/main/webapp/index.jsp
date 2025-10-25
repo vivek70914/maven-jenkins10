@@ -167,10 +167,11 @@
         }
 
         .container.signin {
-            background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(230, 126, 34, 0.15));
-            border: 2px solid rgba(241, 196, 15, 0.5);
+            background: #ffffff;
+            border: 2px solid #48bb78;
             padding: 10px 16px;
             animation-delay: 0.2s;
+            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
         }
 
         .container.signin p {
@@ -182,14 +183,14 @@
         }
 
         .container.signin a {
-            color: #e67e22;
+            color: #2f855a;
             text-decoration: none;
             font-weight: 700;
         }
 
         .container.signin a:hover {
             text-decoration: underline;
-            color: #d35400;
+            color: #22543d;
         }
 
         form > h1 {
@@ -362,8 +363,8 @@
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" id="psw" required minlength="6">
             
-            <label for="psw-repeat"><b>Repeat Password</b></label>
-            <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required minlength="6">
+            <label for="psw-repeat"><b>Confirm Password</b></label>
+            <input type="password" placeholder="Confirm Password" name="psw-repeat" id="psw-repeat" required minlength="6">
             
             <hr>
             
