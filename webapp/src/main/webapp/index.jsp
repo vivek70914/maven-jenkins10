@@ -15,26 +15,12 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(-45deg, #1e3c72, #2a5298, #7e22ce, #c2185b);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 12px 12px;
-        }
-
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
         }
 
         form {
@@ -44,8 +30,8 @@
 
         .container {
             background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             padding: 28px;
             margin-bottom: 10px;
             animation: slideUp 0.6s ease-out;
@@ -65,86 +51,38 @@
         .container h1 {
             font-size: 20px;
             font-weight: 700;
-            color: #1a202c;
+            color: #0f172a;
             text-align: center;
             margin-bottom: 3px;
             line-height: 1.15;
-            background: linear-gradient(135deg, #7e22ce, #2a5298, #c2185b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes textGlow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(126, 34, 206, 0.3);
-                filter: brightness(1);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(126, 34, 206, 0.6);
-                filter: brightness(1.1);
-            }
         }
 
         .container > p {
             text-align: center;
             font-size: 12px;
-            color: #718096;
+            color: #64748b;
             margin-bottom: 12px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .container > p strong {
             font-weight: 700;
-            font-size: 13px;
-            background: linear-gradient(135deg, #2a5298, #7e22ce, #c2185b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: subtitleShine 4s ease-in-out infinite;
-        }
-
-        @keyframes subtitleShine {
-            0%, 100% {
-                filter: brightness(1);
-                text-shadow: 0 0 10px rgba(42, 82, 152, 0.2);
-            }
-            50% {
-                filter: brightness(1.2);
-                text-shadow: 0 0 20px rgba(194, 24, 91, 0.4);
-            }
+            color: #1e40af;
         }
 
         hr {
             border: none;
-            height: 1.5px;
-            background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
+            height: 1px;
+            background: #e2e8f0;
             margin: 10px 0;
             border-radius: 2px;
-            animation: colorFlow 3s ease-in-out infinite;
-        }
-
-        @keyframes colorFlow {
-            0% {
-                background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
-                box-shadow: 0 0 10px rgba(126, 34, 206, 0.5);
-            }
-            50% {
-                background: linear-gradient(90deg, #2a5298, #c2185b, #2a5298);
-                box-shadow: 0 0 15px rgba(194, 24, 91, 0.5);
-            }
-            100% {
-                background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
-                box-shadow: 0 0 10px rgba(126, 34, 206, 0.5);
-            }
         }
 
         label {
             display: block;
             font-size: 11px;
             font-weight: 600;
-            color: #2d3748;
+            color: #334155;
             margin-bottom: 3px;
             margin-top: 7px;
         }
@@ -158,10 +96,10 @@
             width: 100%;
             padding: 8px 12px;
             font-size: 13px;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            background: #f7fafc;
-            color: #2d3748;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: #f8fafc;
+            color: #0f172a;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
             margin-bottom: 1px;
@@ -170,15 +108,14 @@
         input[type="text"]:focus,
         input[type="password"]:focus {
             outline: none;
-            border-color: #7e22ce;
+            border-color: #1e40af;
             background: #ffffff;
-            box-shadow: 0 0 0 2px rgba(126, 34, 206, 0.1);
-            transform: translateY(-1px);
+            box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.08);
         }
 
         input[type="text"]::placeholder,
         input[type="password"]::placeholder {
-            color: #a0aec0;
+            color: #94a3b8;
             font-weight: 300;
             font-size: 12px;
         }
@@ -190,21 +127,20 @@
         .container > p:last-of-type {
             text-align: center;
             font-size: 10px;
-            color: #718096;
+            color: #64748b;
             margin: 8px 0;
             line-height: 1.4;
         }
 
         .container > p:last-of-type a {
-            color: #7e22ce;
+            color: #1e40af;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .container > p:last-of-type a:hover {
-            text-decoration: underline;
-            color: #c2185b;
+            color: #1e3a8a;
         }
 
         .registerbtn {
@@ -213,32 +149,22 @@
             font-size: 14px;
             font-weight: 600;
             color: #ffffff;
-            background: linear-gradient(135deg, #7e22ce 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.6px;
             margin-top: 2px;
-            animation: buttonGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes buttonGlow {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
-            }
-            50% {
-                box-shadow: 0 6px 25px rgba(194, 24, 91, 0.6);
-            }
         }
 
         .registerbtn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(126, 34, 206, 0.8);
-            background: linear-gradient(135deg, #6b1fa8 0%, #1e3c72 100%);
+            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
+            background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
         }
 
         .registerbtn:active {
@@ -246,37 +172,36 @@
         }
 
         .container.signin {
-            background: #ffffff;
-            border: 2px solid #48bb78;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
             padding: 10px 16px;
             animation-delay: 0.2s;
-            box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+            box-shadow: none;
             transition: all 0.3s ease;
         }
 
         .container.signin:hover {
-            box-shadow: 0 6px 25px rgba(72, 187, 120, 0.5);
-            border-color: #38a169;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: #94a3b8;
         }
 
         .container.signin p {
             text-align: center;
             font-size: 12px;
-            color: #1a202c;
+            color: #334155;
             font-weight: 500;
             margin: 0;
         }
 
         .container.signin a {
-            color: #2f855a;
+            color: #1e40af;
             text-decoration: none;
             font-weight: 700;
             transition: color 0.3s ease;
         }
 
         .container.signin a:hover {
-            text-decoration: underline;
-            color: #22543d;
+            color: #1e3a8a;
         }
 
         form > h1 {
@@ -286,55 +211,23 @@
             color: #ffffff;
             margin-top: 8px;
             padding: 10px;
-            background: linear-gradient(135deg, rgba(126, 34, 206, 0.3), rgba(230, 126, 34, 0.3));
+            background: transparent;
             border-radius: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.6s ease-out, titleShine 4s ease-in-out infinite;
+            border: none;
+            box-shadow: none;
+            animation: slideUp 0.6s ease-out;
             animation-delay: 0.3s;
             animation-fill-mode: both;
             line-height: 1.2;
         }
 
-        @keyframes titleShine {
-            0%, 100% {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            }
-            50% {
-                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
-            }
-        }
-
         /* Input validation styles */
         input.valid {
-            border-color: #48bb78 !important;
-            animation: validPulse 0.5s ease;
+            border-color: #16a34a !important;
         }
 
         input.invalid {
-            border-color: #f56565 !important;
-            animation: invalidShake 0.5s ease;
-        }
-
-        @keyframes validPulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 0 5px rgba(72, 187, 120, 0);
-            }
-        }
-
-        @keyframes invalidShake {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-5px);
-            }
-            75% {
-                transform: translateX(5px);
-            }
+            border-color: #dc2626 !important;
         }
 
         /* Success/Error Messages */
@@ -361,33 +254,15 @@
         }
 
         .success-message {
-            background: linear-gradient(135deg, #48bb78, #38a169);
-            color: white;
-            animation: successGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes successGlow {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(72, 187, 120, 0.8);
-            }
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #86efac;
         }
 
         .error-message {
-            background: linear-gradient(135deg, #f56565, #e53e3e);
-            color: white;
-            animation: errorGlow 2s ease-in-out infinite;
-        }
-
-        @keyframes errorGlow {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(245, 101, 101, 0.5);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(245, 101, 101, 0.8);
-            }
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
         }
 
         /* Responsive Design */
