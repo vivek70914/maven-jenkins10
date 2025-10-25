@@ -79,6 +79,11 @@
             font-weight: 400;
         }
 
+        .container > p strong {
+            font-weight: 700;
+            color: #2d3748;
+        }
+
         hr {
             border: none;
             height: 1.5px;
@@ -461,7 +466,7 @@
             <div id="errorMessage" class="message error-message"></div>
 
             <h1>New user Register for training</h1>
-            <p>Deploy using Docker with Vivek Pagi</p>
+            <p><strong>Deploy using Docker with Vivek Pagi</strong></p>
             <hr>
             
             <label for="Name"><b>Enter Name</b></label>
