@@ -1,57 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Diwali - Registration | Vivek Pagi</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>User Registration</title>
+<!-- Google Fonts for clean typography -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  .container {
+    background: #fff;
+    padding: 40px;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0a0404 0%, #2d1810 25%, #4a1a0f 50%, #2d1810 75%, #0a0404 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
 
-        /* Animated Background Pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 210, 63, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(210, 4, 45, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
+  p {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+  }
 
-        /* Floating Diyas */
-        .diya-float {
-            position: fixed;
-            font-size: 50px;
-            animation: floatDiya 8s ease-in-out infinite;
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 1;
-            filter: drop-shadow(0 0 10px rgba(255, 165, 0, 0.6));
-        }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 
-        .diya-float:nth-child(1) { left: 5%; top: 20%; animation-delay: 0s; }
-        .diya-float:nth-child(2) { left: 85%; top: 15%; animation-delay: 2s; }
-        .diya-float:nth-child(3) { left: 10%; top: 70%; animation-delay: 4s; }
-        .diya-float:nth-child(4) { left: 90%; top: 65%; animation-delay: 6s; }
+  label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #222;
+  }
 
-        @keyf
+  input {
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  input:focus {
+    border-color: #66a6ff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 166, 255, 0.5);
+  }
+
+  button {
+    margin-top: 25px;
+    padding: 14px;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: linear-gradient(45deg, #feb47b, #ff7e5f);
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 500px){
+    .container {
+      padding: 30px 20px;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>User Registration</h2>
+  <form id="registerForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name" required />
+
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" id="mobile" placeholder="Enter 10-digit mobile" pattern="\d{10}" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required />
+
+    <label for="password">Create Password</label>
+    <input type="password" id="password" placeholder="Create password" required />
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" placeholder="Confirm password" required />
+
+    <button type="submit">Register</button>
+  </form>
+  <div class="footer">
+    <p>Already have an account? <a href="#">Sign In</a></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('registerForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    if(password !== confirmPassword){
+      alert('Passwords do not match!');
+      return;
+    }
+
+    if(mobile.length !== 10 || isNaN(mobile)){
+      alert('Please enter a valid 10-digit mobile number.');
+      return;
+    }
+
+    alert(`Registration successful! Welcome, ${name}.`);
+    // Here, you can add AJAX to send data to backend or further processing
+  });
+</script>
+
+</body>
+</html>
