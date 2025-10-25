@@ -91,11 +91,12 @@
         }
 
         .diwali-header h1 {
-            font-size: 48px;
+            font-size: 42px;
             color: var(--diwali-gold);
             text-shadow: 0 0 20px var(--diwali-orange), 0 0 40px var(--diwali-red);
             margin-bottom: 10px;
             animation: glow 2s ease-in-out infinite;
+            font-weight: bold;
         }
 
         @keyframes glow {
@@ -141,14 +142,15 @@
 
         /* Form Container */
         .form-container {
-            background: linear-gradient(135deg, rgba(255, 248, 231, 0.95), rgba(255, 248, 231, 0.98));
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 248, 231, 0.98));
             border-radius: 20px;
             padding: 40px;
-            box-shadow: 0 0 40px rgba(255, 107, 53, 0.4), 0 0 80px rgba(210, 4, 45, 0.2);
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3), 0 0 80px rgba(210, 4, 45, 0.15);
             border: 3px solid var(--diwali-gold);
             position: relative;
             animation: fadeInUp 1s ease-out;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         /* Rangoli Corner Decorations */
@@ -219,13 +221,14 @@
 
         input {
             width: 100%;
-            padding: 14px;
-            border: 2px solid var(--diwali-gold);
+            padding: 14px 16px;
+            border: 2px solid #e6c14a;
             border-radius: 10px;
             font-size: 15px;
-            background: white;
+            background: #ffffff;
             transition: all 0.3s ease;
             color: var(--diwali-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         input:focus {
@@ -342,17 +345,18 @@
             text-align: center;
             margin-top: 30px;
             padding: 25px;
-            background: linear-gradient(135deg, rgba(255, 211, 63, 0.2), rgba(255, 107, 53, 0.2));
+            background: linear-gradient(135deg, rgba(255, 211, 63, 0.3), rgba(255, 107, 53, 0.3));
             border-radius: 15px;
             border: 2px dashed var(--diwali-gold);
         }
 
         .thank-you h3 {
-            color: var(--diwali-gold);
-            font-size: 32px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: #FFD700;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5), 0 0 20px rgba(255, 215, 0, 0.6);
             margin-bottom: 10px;
             animation: pulse 2s ease-in-out infinite;
+            font-weight: bold;
         }
 
         @keyframes pulse {
@@ -413,15 +417,21 @@
 
         @media (max-width: 768px) {
             .diwali-header h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .form-container {
-                padding: 25px;
+                padding: 20px;
             }
             
             .diya-row {
                 font-size: 35px;
+                gap: 10px;
+            }
+            
+            .register-btn {
+                font-size: 16px;
+                padding: 14px;
             }
         }
     </style>
