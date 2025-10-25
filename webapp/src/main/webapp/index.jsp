@@ -20,27 +20,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 20px;
+            padding: 12px 12px;
         }
 
         form {
             width: 100%;
-            max-width: 550px;
+            max-width: 500px;
         }
 
         .container {
             background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            padding: 35px;
-            margin-bottom: 15px;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            padding: 28px;
+            margin-bottom: 10px;
             animation: slideUp 0.6s ease-out;
         }
 
         @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -49,37 +49,37 @@
         }
 
         .container h1 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: #1a202c;
             text-align: center;
-            margin-bottom: 5px;
-            line-height: 1.2;
+            margin-bottom: 3px;
+            line-height: 1.15;
         }
 
         .container > p {
             text-align: center;
-            font-size: 13px;
+            font-size: 12px;
             color: #718096;
-            margin-bottom: 18px;
-            font-weight: 500;
+            margin-bottom: 12px;
+            font-weight: 400;
         }
 
         hr {
             border: none;
-            height: 2px;
+            height: 1.5px;
             background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
-            margin: 15px 0;
+            margin: 10px 0;
             border-radius: 2px;
         }
 
         label {
             display: block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 5px;
-            margin-top: 10px;
+            margin-bottom: 3px;
+            margin-top: 7px;
         }
 
         label b {
@@ -89,15 +89,15 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 10px 14px;
-            font-size: 14px;
+            padding: 8px 12px;
+            font-size: 13px;
             border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 8px;
             background: #f7fafc;
             color: #2d3748;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         input[type="text"]:focus,
@@ -105,7 +105,7 @@
             outline: none;
             border-color: #7e22ce;
             background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+            box-shadow: 0 0 0 2px rgba(126, 34, 206, 0.1);
             transform: translateY(-1px);
         }
 
@@ -113,6 +113,7 @@
         input[type="password"]::placeholder {
             color: #a0aec0;
             font-weight: 300;
+            font-size: 12px;
         }
 
         br {
@@ -121,10 +122,10 @@
 
         .container > p:last-of-type {
             text-align: center;
-            font-size: 11px;
+            font-size: 10px;
             color: #718096;
-            margin: 12px 0 12px 0;
-            line-height: 1.5;
+            margin: 8px 0;
+            line-height: 1.4;
         }
 
         .container > p:last-of-type a {
@@ -139,24 +140,25 @@
 
         .registerbtn {
             width: 100%;
-            padding: 12px;
-            font-size: 15px;
+            padding: 10px;
+            font-size: 14px;
             font-weight: 600;
             color: #ffffff;
             background: linear-gradient(135deg, #7e22ce 0%, #2a5298 100%);
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(126, 34, 206, 0.4);
+            box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
+            margin-top: 2px;
         }
 
         .registerbtn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(126, 34, 206, 0.6);
+            box-shadow: 0 6px 20px rgba(126, 34, 206, 0.6);
             background: linear-gradient(135deg, #6b1fa8 0%, #1e3c72 100%);
         }
 
@@ -165,44 +167,46 @@
         }
 
         .container.signin {
-            background: linear-gradient(135deg, rgba(126, 34, 206, 0.1), rgba(42, 82, 152, 0.1));
-            border: 2px solid rgba(126, 34, 206, 0.3);
-            padding: 12px 20px;
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.15), rgba(230, 126, 34, 0.15));
+            border: 2px solid rgba(241, 196, 15, 0.5);
+            padding: 10px 16px;
             animation-delay: 0.2s;
         }
 
         .container.signin p {
             text-align: center;
-            font-size: 13px;
-            color: #2d3748;
+            font-size: 12px;
+            color: #1a202c;
             font-weight: 500;
             margin: 0;
         }
 
         .container.signin a {
-            color: #7e22ce;
+            color: #e67e22;
             text-decoration: none;
             font-weight: 700;
         }
 
         .container.signin a:hover {
             text-decoration: underline;
+            color: #d35400;
         }
 
         form > h1 {
             text-align: center;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: #ffffff;
-            margin-top: 12px;
-            padding: 15px;
-            background: linear-gradient(135deg, rgba(126, 34, 206, 0.2), rgba(42, 82, 152, 0.2));
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            margin-top: 8px;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(126, 34, 206, 0.3), rgba(230, 126, 34, 0.3));
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             animation: slideUp 0.6s ease-out;
-            animation-delay: 0.4s;
+            animation-delay: 0.3s;
             animation-fill-mode: both;
+            line-height: 1.2;
         }
 
         /* Input validation styles */
@@ -216,13 +220,13 @@
 
         /* Success/Error Messages */
         .message {
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 12px;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
             text-align: center;
             font-weight: 500;
             display: none;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .success-message {
@@ -238,74 +242,100 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             body {
-                padding: 15px 15px;
+                padding: 10px 10px;
             }
 
             .container {
-                padding: 28px;
-                margin-bottom: 12px;
+                padding: 24px;
+                margin-bottom: 8px;
             }
 
             .container h1 {
-                font-size: 22px;
+                font-size: 18px;
             }
 
             .container > p {
-                font-size: 12px;
-                margin-bottom: 14px;
+                font-size: 11px;
+                margin-bottom: 10px;
             }
 
             input[type="text"],
             input[type="password"] {
-                padding: 9px 12px;
-                font-size: 13px;
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+
+            label {
+                font-size: 10px;
+                margin-top: 6px;
             }
 
             .registerbtn {
-                padding: 11px;
-                font-size: 14px;
+                padding: 9px;
+                font-size: 13px;
             }
 
             form > h1 {
-                font-size: 18px;
-                padding: 12px;
-                margin-top: 10px;
+                font-size: 14px;
+                padding: 8px;
+                margin-top: 6px;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 12px 12px;
+                padding: 8px 8px;
             }
 
             .container {
-                padding: 22px;
-                margin-bottom: 10px;
+                padding: 20px;
+                margin-bottom: 6px;
             }
 
             .container h1 {
-                font-size: 20px;
+                font-size: 17px;
+                margin-bottom: 2px;
+            }
+
+            .container > p {
+                font-size: 11px;
+                margin-bottom: 8px;
+            }
+
+            hr {
+                margin: 8px 0;
             }
 
             input[type="text"],
             input[type="password"] {
-                padding: 8px 11px;
-                font-size: 13px;
+                padding: 7px 10px;
+                font-size: 12px;
+                margin-bottom: 0px;
             }
 
             label {
-                font-size: 11px;
-                margin-top: 8px;
+                font-size: 10px;
+                margin-top: 5px;
+                margin-bottom: 2px;
             }
 
             .registerbtn {
-                padding: 10px;
+                padding: 8px;
                 font-size: 13px;
             }
 
             form > h1 {
-                font-size: 16px;
-                padding: 10px;
+                font-size: 13px;
+                padding: 7px;
+                margin-top: 5px;
+            }
+
+            .container.signin {
+                padding: 8px 12px;
+            }
+
+            .container.signin p {
+                font-size: 11px;
             }
         }
     </style>
