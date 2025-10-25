@@ -69,6 +69,22 @@
             text-align: center;
             margin-bottom: 3px;
             line-height: 1.15;
+            background: linear-gradient(135deg, #7e22ce, #2a5298, #c2185b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(126, 34, 206, 0.3);
+                filter: brightness(1);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(126, 34, 206, 0.6);
+                filter: brightness(1.1);
+            }
         }
 
         .container > p {
@@ -81,7 +97,23 @@
 
         .container > p strong {
             font-weight: 700;
-            color: #2d3748;
+            font-size: 13px;
+            background: linear-gradient(135deg, #2a5298, #7e22ce, #c2185b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: subtitleShine 4s ease-in-out infinite;
+        }
+
+        @keyframes subtitleShine {
+            0%, 100% {
+                filter: brightness(1);
+                text-shadow: 0 0 10px rgba(42, 82, 152, 0.2);
+            }
+            50% {
+                filter: brightness(1.2);
+                text-shadow: 0 0 20px rgba(194, 24, 91, 0.4);
+            }
         }
 
         hr {
