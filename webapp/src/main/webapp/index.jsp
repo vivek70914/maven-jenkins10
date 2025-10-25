@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px 20px;
         }
 
         form {
@@ -32,8 +32,8 @@
             background: #ffffff;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-            padding: 45px;
-            margin-bottom: 25px;
+            padding: 35px;
+            margin-bottom: 15px;
             animation: slideUp 0.6s ease-out;
         }
 
@@ -49,19 +49,19 @@
         }
 
         .container h1 {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: #1a202c;
             text-align: center;
-            margin-bottom: 10px;
-            line-height: 1.3;
+            margin-bottom: 5px;
+            line-height: 1.2;
         }
 
         .container > p {
             text-align: center;
-            font-size: 15px;
+            font-size: 13px;
             color: #718096;
-            margin-bottom: 30px;
+            margin-bottom: 18px;
             font-weight: 500;
         }
 
@@ -69,17 +69,17 @@
             border: none;
             height: 2px;
             background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
-            margin: 30px 0;
+            margin: 15px 0;
             border-radius: 2px;
         }
 
         label {
             display: block;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: #2d3748;
-            margin-bottom: 8px;
-            margin-top: 18px;
+            margin-bottom: 5px;
+            margin-top: 10px;
         }
 
         label b {
@@ -89,15 +89,15 @@
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 14px 18px;
-            font-size: 15px;
+            padding: 10px 14px;
+            font-size: 14px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            border-radius: 10px;
             background: #f7fafc;
             color: #2d3748;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         input[type="text"]:focus,
@@ -105,8 +105,8 @@
             outline: none;
             border-color: #7e22ce;
             background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(126, 34, 206, 0.1);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(126, 34, 206, 0.1);
+            transform: translateY(-1px);
         }
 
         input[type="text"]::placeholder,
@@ -121,10 +121,10 @@
 
         .container > p:last-of-type {
             text-align: center;
-            font-size: 13px;
+            font-size: 11px;
             color: #718096;
-            margin: 25px 0 20px 0;
-            line-height: 1.6;
+            margin: 12px 0 12px 0;
+            line-height: 1.5;
         }
 
         .container > p:last-of-type a {
@@ -139,41 +139,41 @@
 
         .registerbtn {
             width: 100%;
-            padding: 16px;
-            font-size: 17px;
+            padding: 12px;
+            font-size: 15px;
             font-weight: 600;
             color: #ffffff;
             background: linear-gradient(135deg, #7e22ce 0%, #2a5298 100%);
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(126, 34, 206, 0.4);
             font-family: 'Poppins', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
         }
 
         .registerbtn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(126, 34, 206, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(126, 34, 206, 0.6);
             background: linear-gradient(135deg, #6b1fa8 0%, #1e3c72 100%);
         }
 
         .registerbtn:active {
-            transform: translateY(-1px);
+            transform: translateY(0);
         }
 
         .container.signin {
             background: linear-gradient(135deg, rgba(126, 34, 206, 0.1), rgba(42, 82, 152, 0.1));
             border: 2px solid rgba(126, 34, 206, 0.3);
-            padding: 20px 30px;
+            padding: 12px 20px;
             animation-delay: 0.2s;
         }
 
         .container.signin p {
             text-align: center;
-            font-size: 15px;
+            font-size: 13px;
             color: #2d3748;
             font-weight: 500;
             margin: 0;
@@ -191,13 +191,13 @@
 
         form > h1 {
             text-align: center;
-            font-size: 26px;
+            font-size: 20px;
             font-weight: 700;
             color: #ffffff;
-            margin-top: 30px;
-            padding: 25px;
+            margin-top: 12px;
+            padding: 15px;
             background: linear-gradient(135deg, rgba(126, 34, 206, 0.2), rgba(42, 82, 152, 0.2));
-            border-radius: 15px;
+            border-radius: 12px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             animation: slideUp 0.6s ease-out;
@@ -214,49 +214,15 @@
             border-color: #f56565 !important;
         }
 
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 15px;
-            }
-
-            .container {
-                padding: 30px 25px;
-            }
-
-            .container h1 {
-                font-size: 24px;
-            }
-
-            .container > p {
-                font-size: 14px;
-            }
-
-            input[type="text"],
-            input[type="password"] {
-                padding: 12px 16px;
-                font-size: 14px;
-            }
-
-            .registerbtn {
-                padding: 14px;
-                font-size: 16px;
-            }
-
-            form > h1 {
-                font-size: 22px;
-                padding: 20px;
-            }
-        }
-
         /* Success/Error Messages */
         .message {
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
             text-align: center;
             font-weight: 500;
             display: none;
+            font-size: 12px;
         }
 
         .success-message {
@@ -268,6 +234,80 @@
             background: #f56565;
             color: white;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 15px;
+            }
+
+            .container {
+                padding: 28px;
+                margin-bottom: 12px;
+            }
+
+            .container h1 {
+                font-size: 22px;
+            }
+
+            .container > p {
+                font-size: 12px;
+                margin-bottom: 14px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                padding: 9px 12px;
+                font-size: 13px;
+            }
+
+            .registerbtn {
+                padding: 11px;
+                font-size: 14px;
+            }
+
+            form > h1 {
+                font-size: 18px;
+                padding: 12px;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px 12px;
+            }
+
+            .container {
+                padding: 22px;
+                margin-bottom: 10px;
+            }
+
+            .container h1 {
+                font-size: 20px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                padding: 8px 11px;
+                font-size: 13px;
+            }
+
+            label {
+                font-size: 11px;
+                margin-top: 8px;
+            }
+
+            .registerbtn {
+                padding: 10px;
+                font-size: 13px;
+            }
+
+            form > h1 {
+                font-size: 16px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -276,8 +316,8 @@
             <div id="successMessage" class="message success-message"></div>
             <div id="errorMessage" class="message error-message"></div>
 
-            <h1>New user Register for training - vivek pagi</h1>
-            <p>Deploy using Docker with vivek pagi</p>
+            <h1>New user Register for training</h1>
+            <p>Deploy using Docker with Vivek Pagi</p>
             <hr>
             
             <label for="Name"><b>Enter Name</b></label>
@@ -332,7 +372,6 @@
                 errorMessage.textContent = 'Please enter a valid 10-digit mobile number!';
                 errorMessage.style.display = 'block';
                 document.getElementById('mobile').focus();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
                 return false;
             }
 
@@ -342,7 +381,6 @@
                 errorMessage.textContent = 'Please enter a valid email address!';
                 errorMessage.style.display = 'block';
                 document.getElementById('email').focus();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
                 return false;
             }
             
@@ -351,7 +389,6 @@
                 errorMessage.textContent = 'Passwords do not match! Please try again.';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw-repeat').focus();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
                 return false;
             }
 
@@ -360,14 +397,12 @@
                 errorMessage.textContent = 'Password must be at least 6 characters long!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw').focus();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
                 return false;
             }
             
             // Show Success Message
             successMessage.textContent = `Registration Successful! Welcome, ${name}!`;
             successMessage.style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // Uncomment the next line to actually submit the form
             // this.submit();
