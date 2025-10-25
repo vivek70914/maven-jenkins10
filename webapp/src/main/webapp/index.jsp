@@ -15,12 +15,26 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #7e22ce, #c2185b);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 12px 12px;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         form {
@@ -71,6 +85,22 @@
             background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
             margin: 10px 0;
             border-radius: 2px;
+            animation: colorFlow 3s ease-in-out infinite;
+        }
+
+        @keyframes colorFlow {
+            0% {
+                background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
+                box-shadow: 0 0 10px rgba(126, 34, 206, 0.5);
+            }
+            50% {
+                background: linear-gradient(90deg, #2a5298, #c2185b, #2a5298);
+                box-shadow: 0 0 15px rgba(194, 24, 91, 0.5);
+            }
+            100% {
+                background: linear-gradient(90deg, #7e22ce, #2a5298, #7e22ce);
+                box-shadow: 0 0 10px rgba(126, 34, 206, 0.5);
+            }
         }
 
         label {
@@ -132,10 +162,12 @@
             color: #7e22ce;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .container > p:last-of-type a:hover {
             text-decoration: underline;
+            color: #c2185b;
         }
 
         .registerbtn {
@@ -154,11 +186,21 @@
             text-transform: uppercase;
             letter-spacing: 0.6px;
             margin-top: 2px;
+            animation: buttonGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes buttonGlow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(126, 34, 206, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 25px rgba(194, 24, 91, 0.6);
+            }
         }
 
         .registerbtn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(126, 34, 206, 0.6);
+            box-shadow: 0 8px 30px rgba(126, 34, 206, 0.8);
             background: linear-gradient(135deg, #6b1fa8 0%, #1e3c72 100%);
         }
 
@@ -172,6 +214,12 @@
             padding: 10px 16px;
             animation-delay: 0.2s;
             box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .container.signin:hover {
+            box-shadow: 0 6px 25px rgba(72, 187, 120, 0.5);
+            border-color: #38a169;
         }
 
         .container.signin p {
@@ -186,6 +234,7 @@
             color: #2f855a;
             text-decoration: none;
             font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .container.signin a:hover {
@@ -204,19 +253,51 @@
             border-radius: 10px;
             border: 2px solid rgba(255, 255, 255, 0.4);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.6s ease-out;
+            animation: slideUp 0.6s ease-out, titleShine 4s ease-in-out infinite;
             animation-delay: 0.3s;
             animation-fill-mode: both;
             line-height: 1.2;
         }
 
+        @keyframes titleShine {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
         /* Input validation styles */
         input.valid {
             border-color: #48bb78 !important;
+            animation: validPulse 0.5s ease;
         }
 
         input.invalid {
             border-color: #f56565 !important;
+            animation: invalidShake 0.5s ease;
+        }
+
+        @keyframes validPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 0 5px rgba(72, 187, 120, 0);
+            }
+        }
+
+        @keyframes invalidShake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-5px);
+            }
+            75% {
+                transform: translateX(5px);
+            }
         }
 
         /* Success/Error Messages */
@@ -228,16 +309,48 @@
             font-weight: 500;
             display: none;
             font-size: 11px;
+            animation: messageSlide 0.5s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .success-message {
-            background: #48bb78;
+            background: linear-gradient(135deg, #48bb78, #38a169);
             color: white;
+            animation: successGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes successGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(72, 187, 120, 0.8);
+            }
         }
 
         .error-message {
-            background: #f56565;
+            background: linear-gradient(135deg, #f56565, #e53e3e);
             color: white;
+            animation: errorGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes errorGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(245, 101, 101, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(245, 101, 101, 0.8);
+            }
         }
 
         /* Responsive Design */
