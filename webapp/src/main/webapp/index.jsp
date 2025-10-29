@@ -25,30 +25,44 @@
             overflow: hidden;
         }
 
-        /* Floating knowledge particles */
-        .particle {
+        /* Animated background circles */
+        .bg-circle {
             position: fixed;
-            font-size: 20px;
-            opacity: 0.3;
-            animation: floatParticles 15s linear infinite;
-            pointer-events: none;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
         }
 
-        @keyframes floatParticles {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: white;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: white;
+            bottom: -50px;
+            right: 100px;
+            animation-delay: 5s;
+        }
+
+        .bg-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: white;
+            top: 200px;
+            right: -50px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
         }
 
         .main-container {
@@ -61,6 +75,8 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             animation: slideUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes slideUp {
@@ -77,150 +93,174 @@
         /* Left side - Illustration */
         .illustration-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px;
+            padding: 50px 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .student-learning {
+        /* Animated book illustration */
+        .book-illustration {
             position: relative;
-            width: 250px;
+            width: 200px;
             height: 250px;
-            animation: breathe 3s ease-in-out infinite;
+            margin-bottom: 40px;
         }
 
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Student with book */
-        .student {
-            position: absolute;
-            width: 120px;
-            height: 140px;
+        .book-base {
+            width: 150px;
+            height: 180px;
             background: #fff;
-            border-radius: 60px 60px 40px 40px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .student::before {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: #ffd6a5;
-            border-radius: 50%;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Book */
-        .book {
-            position: absolute;
-            width: 100px;
-            height: 70px;
-            background: #ff6b6b;
             border-radius: 8px;
-            bottom: 20px;
+            position: absolute;
             left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: bookFloat 2s ease-in-out infinite;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: bookFloat 3s ease-in-out infinite;
         }
 
         @keyframes bookFloat {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+            0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+            50% { transform: translate(-50%, -50%) translateY(-15px); }
         }
 
-        .book::before {
-            content: '';
+        .book-pages {
+            width: 140px;
+            height: 170px;
+            background: linear-gradient(90deg, #f0f0f0 0%, #fff 50%, #f0f0f0 100%);
             position: absolute;
-            width: 2px;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.3);
-            left: 50%;
-            top: 0;
+            left: 5px;
+            top: 5px;
+            border-radius: 6px;
         }
 
-        /* Floating icons around student */
-        .icon {
+        .book-line {
+            width: 100px;
+            height: 2px;
+            background: rgba(102, 126, 234, 0.3);
             position: absolute;
-            font-size: 30px;
+            left: 20px;
+            animation: writeLine 2s ease-in-out infinite;
+        }
+
+        .book-line:nth-child(1) { top: 40px; animation-delay: 0s; }
+        .book-line:nth-child(2) { top: 60px; animation-delay: 0.5s; }
+        .book-line:nth-child(3) { top: 80px; animation-delay: 1s; }
+        .book-line:nth-child(4) { top: 100px; animation-delay: 1.5s; }
+
+        @keyframes writeLine {
+            0% { width: 0; opacity: 0; }
+            50% { width: 100px; opacity: 1; }
+            100% { width: 100px; opacity: 1; }
+        }
+
+        /* Floating circles around book */
+        .float-circle {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             animation: orbit 8s linear infinite;
         }
 
-        .icon:nth-child(1) {
+        .float-circle:nth-child(1) {
+            background: rgba(255, 255, 255, 0.2);
             animation-delay: 0s;
         }
 
-        .icon:nth-child(2) {
+        .float-circle:nth-child(2) {
+            background: rgba(255, 255, 255, 0.15);
+            width: 30px;
+            height: 30px;
             animation-delay: -2s;
         }
 
-        .icon:nth-child(3) {
+        .float-circle:nth-child(3) {
+            background: rgba(255, 255, 255, 0.1);
+            width: 35px;
+            height: 35px;
             animation-delay: -4s;
-        }
-
-        .icon:nth-child(4) {
-            animation-delay: -6s;
         }
 
         @keyframes orbit {
             0% {
-                transform: rotate(0deg) translateX(100px) rotate(0deg);
+                transform: rotate(0deg) translateX(80px) rotate(0deg);
             }
             100% {
-                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+                transform: rotate(360deg) translateX(80px) rotate(-360deg);
             }
         }
 
         .welcome-text {
             color: white;
             text-align: center;
-            margin-top: 30px;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1.5s ease-in;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .welcome-text h2 {
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .welcome-text p {
-            font-size: 14px;
+            font-size: 15px;
             opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Tech badge indicators */
+        .tech-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            backdrop-filter: blur(10px);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        .badge:nth-child(1) { animation-delay: 0s; }
+        .badge:nth-child(2) { animation-delay: 0.3s; }
+        .badge:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         /* Right side - Form */
         .form-section {
-            padding: 40px;
+            padding: 50px 40px;
+            background: white;
         }
 
         .form-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .form-header h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .form-header p {
@@ -231,11 +271,12 @@
 
         .form-header p strong {
             color: #667eea;
+            font-weight: 700;
         }
 
         .input-group {
-            margin-bottom: 18px;
-            animation: slideInRight 0.5s ease-out;
+            margin-bottom: 20px;
+            animation: slideInRight 0.6s ease-out;
             animation-fill-mode: both;
         }
 
@@ -261,30 +302,32 @@
             font-size: 13px;
             font-weight: 600;
             color: #4a5568;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .input-field {
             width: 100%;
-            padding: 12px 16px;
+            padding: 13px 18px;
             font-size: 14px;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
             background: #f7fafc;
+            color: #2d3748;
         }
 
         .input-field:focus {
             outline: none;
             border-color: #667eea;
             background: white;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
             transform: translateY(-2px);
         }
 
         .input-field::placeholder {
             color: #a0aec0;
+            font-weight: 300;
         }
 
         .input-field.valid {
@@ -299,45 +342,36 @@
 
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             font-size: 16px;
             font-weight: 700;
             color: white;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            margin-top: 25px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '🎓';
-            position: absolute;
-            left: -30px;
-            font-size: 20px;
-            transition: left 0.3s ease;
-        }
-
-        .submit-btn:hover::before {
-            left: calc(50% - 10px);
+            letter-spacing: 1.5px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
         }
 
         .terms {
             text-align: center;
             font-size: 12px;
             color: #718096;
-            margin: 15px 0;
+            margin: 20px 0;
+            line-height: 1.6;
         }
 
         .terms a {
@@ -346,14 +380,19 @@
             font-weight: 600;
         }
 
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
         .signin-link {
             text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: #f7fafc;
-            border-radius: 10px;
+            margin-top: 25px;
+            padding: 18px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 12px;
             font-size: 14px;
             color: #4a5568;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .signin-link a {
@@ -362,20 +401,24 @@
             font-weight: 700;
         }
 
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+
         .message {
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 20px;
             font-size: 13px;
             font-weight: 500;
             display: none;
-            animation: slideDown 0.3s ease;
+            animation: messageSlide 0.4s ease;
         }
 
-        @keyframes slideDown {
+        @keyframes messageSlide {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
             to {
                 opacity: 1;
@@ -384,13 +427,13 @@
         }
 
         .success-message {
-            background: #c6f6d5;
+            background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
             color: #22543d;
             border-left: 4px solid #48bb78;
         }
 
         .error-message {
-            background: #fed7d7;
+            background: linear-gradient(135deg, #fed7d7, #feb2b2);
             color: #742a2a;
             border-left: 4px solid #f56565;
         }
@@ -402,49 +445,61 @@
             }
 
             .illustration-section {
-                padding: 30px;
-                min-height: 300px;
+                padding: 40px 30px;
             }
 
             .form-section {
-                padding: 30px 25px;
+                padding: 35px 25px;
             }
 
-            .student-learning {
-                width: 200px;
+            .book-illustration {
+                width: 150px;
                 height: 200px;
+            }
+
+            .book-base {
+                width: 120px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating particles -->
-    <div class="particle" style="left: 10%; animation-delay: 0s;">📚</div>
-    <div class="particle" style="left: 30%; animation-delay: 3s;">✏️</div>
-    <div class="particle" style="left: 50%; animation-delay: 6s;">💡</div>
-    <div class="particle" style="left: 70%; animation-delay: 9s;">🎓</div>
-    <div class="particle" style="left: 90%; animation-delay: 12s;">📖</div>
+    <!-- Background animated circles -->
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
+    <div class="bg-circle"></div>
 
     <div class="main-container">
-        <!-- Left Section - Illustration -->
+        <!-- Left Section - Learning Illustration -->
         <div class="illustration-section">
-            <div class="student-learning">
-                <div class="student">
-                    <div class="book"></div>
+            <div class="book-illustration">
+                <div class="float-circle"></div>
+                <div class="float-circle"></div>
+                <div class="float-circle"></div>
+                <div class="book-base">
+                    <div class="book-pages">
+                        <div class="book-line"></div>
+                        <div class="book-line"></div>
+                        <div class="book-line"></div>
+                        <div class="book-line"></div>
+                    </div>
                 </div>
-                <div class="icon" style="left: 50%; top: 50%;">💻</div>
-                <div class="icon" style="left: 50%; top: 50%;">🐳</div>
-                <div class="icon" style="left: 50%; top: 50%;">⚙️</div>
-                <div class="icon" style="left: 50%; top: 50%;">🚀</div>
             </div>
             
             <div class="welcome-text">
                 <h2>Start Your Learning Journey</h2>
-                <p>Join thousands of students mastering Docker & DevOps</p>
+                <p>Master Docker and DevOps with hands-on training</p>
+                
+                <div class="tech-badges">
+                    <div class="badge">Docker</div>
+                    <div class="badge">Jenkins</div>
+                    <div class="badge">DevOps</div>
+                </div>
             </div>
         </div>
 
-        <!-- Right Section - Form -->
+        <!-- Right Section - Registration Form -->
         <div class="form-section">
             <div class="form-header">
                 <h1>Create Your Account</h1>
@@ -525,7 +580,7 @@
                 <button type="submit" class="submit-btn">Start Learning</button>
 
                 <div class="signin-link">
-                    Already have an account? <a href="#">Sign in</a>
+                    Already have an account? <a href="#">Sign in here</a>
                 </div>
             </form>
         </div>
@@ -550,7 +605,7 @@
             const confirmPassword = document.getElementById('psw-repeat').value;
             
             if (!/^[0-9]{10}$/.test(mobile)) {
-                errorMessage.textContent = '📱 Please enter a valid 10-digit mobile number!';
+                errorMessage.textContent = 'Please enter a valid 10-digit mobile number!';
                 errorMessage.style.display = 'block';
                 document.getElementById('mobile').focus();
                 return false;
@@ -558,27 +613,27 @@
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(email)) {
-                errorMessage.textContent = '📧 Please enter a valid email address!';
+                errorMessage.textContent = 'Please enter a valid email address!';
                 errorMessage.style.display = 'block';
                 document.getElementById('email').focus();
                 return false;
             }
             
             if (password !== confirmPassword) {
-                errorMessage.textContent = '🔒 Passwords do not match!';
+                errorMessage.textContent = 'Passwords do not match! Please try again.';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw-repeat').focus();
                 return false;
             }
 
             if (password.length < 6) {
-                errorMessage.textContent = '🔑 Password must be at least 6 characters!';
+                errorMessage.textContent = 'Password must be at least 6 characters long!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw').focus();
                 return false;
             }
             
-            successMessage.textContent = `🎉 Registration Successful! Welcome to the learning journey, ${name}!`;
+            successMessage.textContent = 'Registration Successful! Welcome to the learning journey, ' + name + '!';
             successMessage.style.display = 'block';
             
             // Uncomment to submit: this.submit();
