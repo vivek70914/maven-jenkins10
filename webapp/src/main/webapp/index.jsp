@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
             position: relative;
             overflow: hidden;
         }
@@ -39,7 +39,6 @@
             background: white;
             top: -100px;
             left: -100px;
-            animation-delay: 0s;
         }
 
         .bg-circle:nth-child(2) {
@@ -51,15 +50,6 @@
             animation-delay: 5s;
         }
 
-        .bg-circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            background: white;
-            top: 200px;
-            right: -50px;
-            animation-delay: 10s;
-        }
-
         @keyframes float {
             0%, 100% { transform: translate(0, 0); }
             50% { transform: translate(30px, 30px); }
@@ -68,15 +58,16 @@
         .main-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            max-width: 1000px;
+            max-width: 950px;
             width: 100%;
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             animation: slideUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             position: relative;
             z-index: 10;
+            max-height: 95vh;
         }
 
         @keyframes slideUp {
@@ -93,7 +84,7 @@
         /* Left side - Illustration */
         .illustration-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 50px 40px;
+            padding: 35px 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -104,14 +95,14 @@
         /* Animated book illustration */
         .book-illustration {
             position: relative;
-            width: 200px;
-            height: 250px;
-            margin-bottom: 40px;
+            width: 160px;
+            height: 180px;
+            margin-bottom: 25px;
         }
 
         .book-base {
-            width: 150px;
-            height: 180px;
+            width: 130px;
+            height: 150px;
             background: #fff;
             border-radius: 8px;
             position: absolute;
@@ -124,12 +115,12 @@
 
         @keyframes bookFloat {
             0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-            50% { transform: translate(-50%, -50%) translateY(-15px); }
+            50% { transform: translate(-50%, -50%) translateY(-10px); }
         }
 
         .book-pages {
-            width: 140px;
-            height: 170px;
+            width: 120px;
+            height: 140px;
             background: linear-gradient(90deg, #f0f0f0 0%, #fff 50%, #f0f0f0 100%);
             position: absolute;
             left: 5px;
@@ -138,7 +129,7 @@
         }
 
         .book-line {
-            width: 100px;
+            width: 80px;
             height: 2px;
             background: rgba(102, 126, 234, 0.3);
             position: absolute;
@@ -146,51 +137,50 @@
             animation: writeLine 2s ease-in-out infinite;
         }
 
-        .book-line:nth-child(1) { top: 40px; animation-delay: 0s; }
-        .book-line:nth-child(2) { top: 60px; animation-delay: 0.5s; }
-        .book-line:nth-child(3) { top: 80px; animation-delay: 1s; }
-        .book-line:nth-child(4) { top: 100px; animation-delay: 1.5s; }
+        .book-line:nth-child(1) { top: 35px; animation-delay: 0s; }
+        .book-line:nth-child(2) { top: 50px; animation-delay: 0.5s; }
+        .book-line:nth-child(3) { top: 65px; animation-delay: 1s; }
+        .book-line:nth-child(4) { top: 80px; animation-delay: 1.5s; }
 
         @keyframes writeLine {
             0% { width: 0; opacity: 0; }
-            50% { width: 100px; opacity: 1; }
-            100% { width: 100px; opacity: 1; }
+            50% { width: 80px; opacity: 1; }
+            100% { width: 80px; opacity: 1; }
         }
 
         /* Floating circles around book */
         .float-circle {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             animation: orbit 8s linear infinite;
         }
 
         .float-circle:nth-child(1) {
             background: rgba(255, 255, 255, 0.2);
-            animation-delay: 0s;
         }
 
         .float-circle:nth-child(2) {
             background: rgba(255, 255, 255, 0.15);
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             animation-delay: -2s;
         }
 
         .float-circle:nth-child(3) {
             background: rgba(255, 255, 255, 0.1);
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             animation-delay: -4s;
         }
 
         @keyframes orbit {
             0% {
-                transform: rotate(0deg) translateX(80px) rotate(0deg);
+                transform: rotate(0deg) translateX(70px) rotate(0deg);
             }
             100% {
-                transform: rotate(360deg) translateX(80px) rotate(-360deg);
+                transform: rotate(360deg) translateX(70px) rotate(-360deg);
             }
         }
 
@@ -206,30 +196,33 @@
         }
 
         .welcome-text h2 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            line-height: 1.3;
         }
 
         .welcome-text p {
-            font-size: 15px;
+            font-size: 13px;
             opacity: 0.95;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Tech badge indicators */
         .tech-badges {
             display: flex;
-            gap: 10px;
-            margin-top: 30px;
+            gap: 8px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .badge {
-            padding: 8px 16px;
+            padding: 6px 14px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: white;
             backdrop-filter: blur(10px);
@@ -247,24 +240,40 @@
 
         /* Right side - Form */
         .form-section {
-            padding: 50px 40px;
+            padding: 35px 30px;
             background: white;
+            overflow-y: auto;
+            max-height: 95vh;
+        }
+
+        .form-section::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .form-section::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .form-section::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
         }
 
         .form-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .form-header h1 {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
+            line-height: 1.3;
         }
 
         .form-header p {
-            font-size: 14px;
+            font-size: 12px;
             color: #718096;
             font-weight: 500;
         }
@@ -275,7 +284,7 @@
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: slideInRight 0.6s ease-out;
             animation-fill-mode: both;
         }
@@ -299,18 +308,18 @@
 
         .input-group label {
             display: block;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: #4a5568;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .input-field {
             width: 100%;
-            padding: 13px 18px;
-            font-size: 14px;
+            padding: 11px 14px;
+            font-size: 13px;
             border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
             background: #f7fafc;
@@ -321,13 +330,14 @@
             outline: none;
             border-color: #667eea;
             background: white;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
-            transform: translateY(-2px);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
         }
 
         .input-field::placeholder {
             color: #a0aec0;
             font-weight: 300;
+            font-size: 12px;
         }
 
         .input-field.valid {
@@ -342,36 +352,36 @@
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
-            font-size: 16px;
+            padding: 12px;
+            font-size: 14px;
             font-weight: 700;
             color: white;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 25px;
+            margin-top: 15px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
         .submit-btn:active {
-            transform: translateY(-1px);
+            transform: translateY(0);
         }
 
         .terms {
             text-align: center;
-            font-size: 12px;
+            font-size: 11px;
             color: #718096;
-            margin: 20px 0;
-            line-height: 1.6;
+            margin: 12px 0;
+            line-height: 1.5;
         }
 
         .terms a {
@@ -386,11 +396,11 @@
 
         .signin-link {
             text-align: center;
-            margin-top: 25px;
-            padding: 18px;
+            margin-top: 15px;
+            padding: 12px;
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-radius: 12px;
-            font-size: 14px;
+            border-radius: 10px;
+            font-size: 12px;
             color: #4a5568;
             border: 1px solid rgba(102, 126, 234, 0.1);
         }
@@ -406,10 +416,10 @@
         }
 
         .message {
-            padding: 14px 18px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            font-size: 13px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 12px;
             font-weight: 500;
             display: none;
             animation: messageSlide 0.4s ease;
@@ -418,7 +428,7 @@
         @keyframes messageSlide {
             from {
                 opacity: 0;
-                transform: translateY(-15px);
+                transform: translateY(-10px);
             }
             to {
                 opacity: 1;
@@ -429,44 +439,53 @@
         .success-message {
             background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
             color: #22543d;
-            border-left: 4px solid #48bb78;
+            border-left: 3px solid #48bb78;
         }
 
         .error-message {
             background: linear-gradient(135deg, #fed7d7, #feb2b2);
             color: #742a2a;
-            border-left: 4px solid #f56565;
+            border-left: 3px solid #f56565;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
+                max-height: none;
             }
 
             .illustration-section {
-                padding: 40px 30px;
+                padding: 30px 25px;
             }
 
             .form-section {
-                padding: 35px 25px;
+                padding: 30px 25px;
+                max-height: none;
             }
 
             .book-illustration {
-                width: 150px;
-                height: 200px;
+                width: 140px;
+                height: 160px;
             }
 
             .book-base {
-                width: 120px;
-                height: 150px;
+                width: 110px;
+                height: 130px;
+            }
+
+            .welcome-text h2 {
+                font-size: 20px;
+            }
+
+            .form-header h1 {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Background animated circles -->
-    <div class="bg-circle"></div>
     <div class="bg-circle"></div>
     <div class="bg-circle"></div>
 
@@ -633,7 +652,7 @@
                 return false;
             }
             
-            successMessage.textContent = 'Registration Successful! Welcome to the learning journey, ' + name + '!';
+            successMessage.textContent = 'Registration Successful! Welcome, ' + name + '!';
             successMessage.style.display = 'block';
             
             // Uncomment to submit: this.submit();
