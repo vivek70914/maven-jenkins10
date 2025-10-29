@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration | Vivek Pagi</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
@@ -14,62 +14,56 @@
         }
 
         body {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: grid;
-            place-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Animated shapes in background */
-        body::before,
-        body::after {
-            content: '';
+        /* Floating knowledge particles */
+        .particle {
             position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.5;
-            animation: float 8s ease-in-out infinite;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: floatParticles 15s linear infinite;
+            pointer-events: none;
         }
 
-        body::before {
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.1);
-            top: -100px;
-            left: -100px;
+        @keyframes floatParticles {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
-        body::after {
-            width: 300px;
-            height: 300px;
-            background: rgba(118, 75, 162, 0.3);
-            bottom: -100px;
-            right: -100px;
-            animation-delay: 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(20px, 20px) scale(1.1); }
-        }
-
-        .registration-card {
-            background: white;
-            max-width: 480px;
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1000px;
             width: 100%;
-            border-radius: 20px;
-            overflow: hidden;
+            background: white;
+            border-radius: 24px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-            animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow: hidden;
+            animation: slideUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        @keyframes slideIn {
+        @keyframes slideUp {
             from {
                 opacity: 0;
                 transform: translateY(50px) scale(0.9);
@@ -80,47 +74,186 @@
             }
         }
 
-        /* Header Section */
-        .header {
+        /* Left side - Illustration */
+        .illustration-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 35px 30px;
-            text-align: center;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .header::after {
+        .student-learning {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Student with book */
+        .student {
+            position: absolute;
+            width: 120px;
+            height: 140px;
+            background: #fff;
+            border-radius: 60px 60px 40px 40px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .student::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: white;
-            border-radius: 20px 20px 0 0;
+            width: 80px;
+            height: 80px;
+            background: #ffd6a5;
+            border-radius: 50%;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .header h1 {
+        /* Book */
+        .book {
+            position: absolute;
+            width: 100px;
+            height: 70px;
+            background: #ff6b6b;
+            border-radius: 8px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: bookFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes bookFloat {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .book::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.3);
+            left: 50%;
+            top: 0;
+        }
+
+        /* Floating icons around student */
+        .icon {
+            position: absolute;
+            font-size: 30px;
+            animation: orbit 8s linear infinite;
+        }
+
+        .icon:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .icon:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        .icon:nth-child(3) {
+            animation-delay: -4s;
+        }
+
+        .icon:nth-child(4) {
+            animation-delay: -6s;
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+
+        .welcome-text {
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .welcome-text h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .welcome-text p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* Right side - Form */
+        .form-section {
+            padding: 40px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h1 {
             font-size: 26px;
             font-weight: 700;
-            color: white;
+            color: #2d3748;
             margin-bottom: 5px;
-            letter-spacing: -0.5px;
         }
 
-        .header p {
+        .form-header p {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.9);
+            color: #718096;
             font-weight: 500;
         }
 
-        /* Form Section */
-        .form-container {
-            padding: 30px;
+        .form-header p strong {
+            color: #667eea;
         }
 
         .input-group {
             margin-bottom: 18px;
-            position: relative;
+            animation: slideInRight 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .input-group:nth-child(1) { animation-delay: 0.1s; }
+        .input-group:nth-child(2) { animation-delay: 0.2s; }
+        .input-group:nth-child(3) { animation-delay: 0.3s; }
+        .input-group:nth-child(4) { animation-delay: 0.4s; }
+        .input-group:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .input-group label {
@@ -129,11 +262,6 @@
             font-weight: 600;
             color: #4a5568;
             margin-bottom: 6px;
-            transition: color 0.3s;
-        }
-
-        .input-wrapper {
-            position: relative;
         }
 
         .input-field {
@@ -142,10 +270,9 @@
             font-size: 14px;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
             background: #f7fafc;
-            color: #2d3748;
         }
 
         .input-field:focus {
@@ -153,39 +280,23 @@
             border-color: #667eea;
             background: white;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .input-field::placeholder {
             color: #a0aec0;
-            font-weight: 300;
         }
 
-        /* Icon indicators */
-        .input-wrapper::after {
-            content: '';
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s;
+        .input-field.valid {
+            border-color: #48bb78;
+            background: #f0fff4;
         }
 
-        .input-field.valid + .input-wrapper::after {
-            opacity: 1;
-            background: #48bb78;
+        .input-field.invalid {
+            border-color: #f56565;
+            background: #fff5f5;
         }
 
-        .input-field.invalid + .input-wrapper::after {
-            opacity: 1;
-            background: #f56565;
-        }
-
-        /* Submit Button */
         .submit-btn {
             width: 100%;
             padding: 14px;
@@ -197,10 +308,24 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 15px;
+            margin-top: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '🎓';
+            position: absolute;
+            left: -30px;
+            font-size: 20px;
+            transition: left 0.3s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: calc(50% - 10px);
         }
 
         .submit-btn:hover {
@@ -208,11 +333,6 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Terms */
         .terms {
             text-align: center;
             font-size: 12px;
@@ -226,42 +346,12 @@
             font-weight: 600;
         }
 
-        .terms a:hover {
-            text-decoration: underline;
-        }
-
-        /* Divider */
-        .divider {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 25px 0;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .divider span {
-            padding: 0 15px;
-            color: #a0aec0;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* Sign in section */
         .signin-link {
             text-align: center;
-            padding: 20px;
+            margin-top: 20px;
+            padding: 15px;
             background: #f7fafc;
             border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .signin-link p {
             font-size: 14px;
             color: #4a5568;
         }
@@ -272,31 +362,6 @@
             font-weight: 700;
         }
 
-        .signin-link a:hover {
-            text-decoration: underline;
-        }
-
-        /* Thank you footer */
-        .footer {
-            text-align: center;
-            padding: 20px 30px;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer h3 {
-            font-size: 16px;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 3px;
-        }
-
-        .footer p {
-            font-size: 13px;
-            color: #718096;
-        }
-
-        /* Messages */
         .message {
             padding: 12px;
             border-radius: 10px;
@@ -330,188 +395,148 @@
             border-left: 4px solid #f56565;
         }
 
-        /* Progress indicator */
-        .progress-bar {
-            height: 3px;
-            background: #e2e8f0;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
         /* Responsive */
-        @media (max-width: 480px) {
-            .registration-card {
-                border-radius: 15px;
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
             }
 
-            .header {
-                padding: 25px 20px;
+            .illustration-section {
+                padding: 30px;
+                min-height: 300px;
             }
 
-            .header h1 {
-                font-size: 22px;
+            .form-section {
+                padding: 30px 25px;
             }
 
-            .form-container {
-                padding: 20px;
-            }
-
-            .input-field {
-                padding: 10px 14px;
-                font-size: 13px;
-            }
-
-            .submit-btn {
-                padding: 12px;
-                font-size: 15px;
+            .student-learning {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="registration-card">
-        <div class="header">
-            <h1>New User Registration</h1>
-            <p><strong>Deploy using Docker with Vivek Pagi</strong></p>
+    <!-- Floating particles -->
+    <div class="particle" style="left: 10%; animation-delay: 0s;">📚</div>
+    <div class="particle" style="left: 30%; animation-delay: 3s;">✏️</div>
+    <div class="particle" style="left: 50%; animation-delay: 6s;">💡</div>
+    <div class="particle" style="left: 70%; animation-delay: 9s;">🎓</div>
+    <div class="particle" style="left: 90%; animation-delay: 12s;">📖</div>
+
+    <div class="main-container">
+        <!-- Left Section - Illustration -->
+        <div class="illustration-section">
+            <div class="student-learning">
+                <div class="student">
+                    <div class="book"></div>
+                </div>
+                <div class="icon" style="left: 50%; top: 50%;">💻</div>
+                <div class="icon" style="left: 50%; top: 50%;">🐳</div>
+                <div class="icon" style="left: 50%; top: 50%;">⚙️</div>
+                <div class="icon" style="left: 50%; top: 50%;">🚀</div>
+            </div>
+            
+            <div class="welcome-text">
+                <h2>Start Your Learning Journey</h2>
+                <p>Join thousands of students mastering Docker & DevOps</p>
+            </div>
         </div>
 
-        <form id="registrationForm" action="action_page.php" method="POST">
-            <div class="form-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
+        <!-- Right Section - Form -->
+        <div class="form-section">
+            <div class="form-header">
+                <h1>Create Your Account</h1>
+                <p><strong>Deploy using Docker with Vivek Pagi</strong></p>
+            </div>
 
+            <form id="registrationForm" action="action_page.php" method="POST">
                 <div id="successMessage" class="message success-message"></div>
                 <div id="errorMessage" class="message error-message"></div>
 
                 <div class="input-group">
                     <label for="Name">Full Name</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="text" 
-                            id="Name" 
-                            name="Name" 
-                            class="input-field" 
-                            placeholder="Enter your full name" 
-                            required
-                        >
-                    </div>
+                    <input 
+                        type="text" 
+                        id="Name" 
+                        name="Name" 
+                        class="input-field" 
+                        placeholder="Enter your full name" 
+                        required
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="mobile">Mobile Number</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="tel" 
-                            id="mobile" 
-                            name="mobile" 
-                            class="input-field" 
-                            placeholder="10-digit mobile number" 
-                            required
-                            pattern="[0-9]{10}"
-                        >
-                    </div>
+                    <input 
+                        type="tel" 
+                        id="mobile" 
+                        name="mobile" 
+                        class="input-field" 
+                        placeholder="10-digit mobile number" 
+                        required
+                        pattern="[0-9]{10}"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="email">Email Address</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            class="input-field" 
-                            placeholder="your.email@example.com" 
-                            required
-                        >
-                    </div>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="input-field" 
+                        placeholder="your.email@example.com" 
+                        required
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="psw">Password</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="password" 
-                            id="psw" 
-                            name="psw" 
-                            class="input-field" 
-                            placeholder="Minimum 6 characters" 
-                            required
-                            minlength="6"
-                        >
-                    </div>
+                    <input 
+                        type="password" 
+                        id="psw" 
+                        name="psw" 
+                        class="input-field" 
+                        placeholder="Minimum 6 characters" 
+                        required
+                        minlength="6"
+                    >
                 </div>
 
                 <div class="input-group">
                     <label for="psw-repeat">Confirm Password</label>
-                    <div class="input-wrapper">
-                        <input 
-                            type="password" 
-                            id="psw-repeat" 
-                            name="psw-repeat" 
-                            class="input-field" 
-                            placeholder="Re-enter your password" 
-                            required
-                            minlength="6"
-                        >
-                    </div>
+                    <input 
+                        type="password" 
+                        id="psw-repeat" 
+                        name="psw-repeat" 
+                        class="input-field" 
+                        placeholder="Re-enter your password" 
+                        required
+                        minlength="6"
+                    >
                 </div>
 
                 <div class="terms">
                     By creating an account you agree to our <a href="#">Terms & Privacy</a>
                 </div>
 
-                <button type="submit" class="submit-btn">Create Account</button>
-
-                <div class="divider">
-                    <span>or</span>
-                </div>
+                <button type="submit" class="submit-btn">Start Learning</button>
 
                 <div class="signin-link">
-                    <p>Already have an account? <a href="#">Sign in</a></p>
+                    Already have an account? <a href="#">Sign in</a>
                 </div>
-            </div>
-
-            <div class="footer">
-                <h3>Thank You!</h3>
-                <p>Happy Learning with Docker Deployment</p>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
     <script>
         const form = document.getElementById('registrationForm');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
-        const progressFill = document.getElementById('progressFill');
         const inputs = document.querySelectorAll('.input-field');
 
-        // Progress bar update
-        function updateProgress() {
-            const totalFields = inputs.length;
-            let filledFields = 0;
-            
-            inputs.forEach(input => {
-                if (input.value.trim() !== '') filledFields++;
-            });
-            
-            const progress = (filledFields / totalFields) * 100;
-            progressFill.style.width = progress + '%';
-        }
-
-        inputs.forEach(input => {
-            input.addEventListener('input', updateProgress);
-        });
-
-        // Form submission
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -525,7 +550,7 @@
             const confirmPassword = document.getElementById('psw-repeat').value;
             
             if (!/^[0-9]{10}$/.test(mobile)) {
-                errorMessage.textContent = 'Please enter a valid 10-digit mobile number!';
+                errorMessage.textContent = '📱 Please enter a valid 10-digit mobile number!';
                 errorMessage.style.display = 'block';
                 document.getElementById('mobile').focus();
                 return false;
@@ -533,27 +558,27 @@
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(email)) {
-                errorMessage.textContent = 'Please enter a valid email address!';
+                errorMessage.textContent = '📧 Please enter a valid email address!';
                 errorMessage.style.display = 'block';
                 document.getElementById('email').focus();
                 return false;
             }
             
             if (password !== confirmPassword) {
-                errorMessage.textContent = 'Passwords do not match!';
+                errorMessage.textContent = '🔒 Passwords do not match!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw-repeat').focus();
                 return false;
             }
 
             if (password.length < 6) {
-                errorMessage.textContent = 'Password must be at least 6 characters!';
+                errorMessage.textContent = '🔑 Password must be at least 6 characters!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw').focus();
                 return false;
             }
             
-            successMessage.textContent = `Registration Successful! Welcome, ${name}!`;
+            successMessage.textContent = `🎉 Registration Successful! Welcome to the learning journey, ${name}!`;
             successMessage.style.display = 'block';
             
             // Uncomment to submit: this.submit();
@@ -611,7 +636,6 @@
             });
         });
 
-        // Password match check
         document.getElementById('psw-repeat').addEventListener('input', function() {
             const password = document.getElementById('psw').value;
             if (this.value && password !== this.value) {
