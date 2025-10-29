@@ -22,7 +22,6 @@
             align-items: center;
             padding: 15px;
             position: relative;
-            overflow: hidden;
         }
 
         /* Animated background circles */
@@ -31,6 +30,7 @@
             border-radius: 50%;
             opacity: 0.1;
             animation: float 20s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .bg-circle:nth-child(1) {
@@ -67,7 +67,6 @@
             animation: slideUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             position: relative;
             z-index: 10;
-            max-height: 95vh;
         }
 
         @keyframes slideUp {
@@ -92,7 +91,6 @@
             position: relative;
         }
 
-        /* Animated book illustration */
         .book-illustration {
             position: relative;
             width: 160px;
@@ -148,7 +146,6 @@
             100% { width: 80px; opacity: 1; }
         }
 
-        /* Floating circles around book */
         .float-circle {
             position: absolute;
             width: 35px;
@@ -209,7 +206,6 @@
             line-height: 1.5;
         }
 
-        /* Tech badge indicators */
         .tech-badges {
             display: flex;
             gap: 8px;
@@ -242,21 +238,6 @@
         .form-section {
             padding: 35px 30px;
             background: white;
-            overflow-y: auto;
-            max-height: 95vh;
-        }
-
-        .form-section::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .form-section::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .form-section::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
         }
 
         .form-header {
@@ -448,49 +429,202 @@
             border-left: 3px solid #f56565;
         }
 
-        /* Responsive */
+        /* Mobile Responsive - FIXED */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                overflow-y: auto;
+            }
+
             .main-container {
                 grid-template-columns: 1fr;
-                max-height: none;
+                margin: 10px 0;
+                border-radius: 15px;
             }
 
             .illustration-section {
-                padding: 30px 25px;
-            }
-
-            .form-section {
-                padding: 30px 25px;
-                max-height: none;
+                padding: 25px 20px;
+                min-height: auto;
             }
 
             .book-illustration {
-                width: 140px;
-                height: 160px;
+                width: 120px;
+                height: 140px;
+                margin-bottom: 20px;
             }
 
             .book-base {
-                width: 110px;
-                height: 130px;
+                width: 100px;
+                height: 120px;
+            }
+
+            .book-pages {
+                width: 90px;
+                height: 110px;
+            }
+
+            .book-line {
+                width: 60px;
+                left: 15px;
+            }
+
+            .book-line:nth-child(1) { top: 25px; }
+            .book-line:nth-child(2) { top: 40px; }
+            .book-line:nth-child(3) { top: 55px; }
+            .book-line:nth-child(4) { top: 70px; }
+
+            .float-circle {
+                width: 25px;
+                height: 25px;
+            }
+
+            .float-circle:nth-child(2) {
+                width: 20px;
+                height: 20px;
+            }
+
+            @keyframes orbit {
+                0% {
+                    transform: rotate(0deg) translateX(50px) rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+                }
             }
 
             .welcome-text h2 {
-                font-size: 20px;
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+
+            .welcome-text p {
+                font-size: 12px;
+            }
+
+            .tech-badges {
+                margin-top: 15px;
+                gap: 6px;
+            }
+
+            .badge {
+                padding: 5px 12px;
+                font-size: 10px;
+            }
+
+            .form-section {
+                padding: 25px 20px;
+            }
+
+            .form-header {
+                margin-bottom: 20px;
             }
 
             .form-header h1 {
-                font-size: 20px;
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+
+            .form-header p {
+                font-size: 11px;
+            }
+
+            .input-group {
+                margin-bottom: 12px;
+            }
+
+            .input-group label {
+                font-size: 11px;
+                margin-bottom: 5px;
+            }
+
+            .input-field {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .input-field::placeholder {
+                font-size: 11px;
+            }
+
+            .submit-btn {
+                padding: 11px;
+                font-size: 13px;
+                margin-top: 12px;
+            }
+
+            .terms {
+                font-size: 10px;
+                margin: 10px 0;
+            }
+
+            .signin-link {
+                margin-top: 12px;
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .message {
+                padding: 8px 12px;
+                font-size: 11px;
+                margin-bottom: 12px;
+            }
+        }
+
+        /* Extra small mobile */
+        @media (max-width: 360px) {
+            body {
+                padding: 8px;
+            }
+
+            .main-container {
+                border-radius: 12px;
+                margin: 5px 0;
+            }
+
+            .illustration-section {
+                padding: 20px 15px;
+            }
+
+            .book-illustration {
+                width: 100px;
+                height: 120px;
+                margin-bottom: 15px;
+            }
+
+            .welcome-text h2 {
+                font-size: 16px;
+            }
+
+            .welcome-text p {
+                font-size: 11px;
+            }
+
+            .form-section {
+                padding: 20px 15px;
+            }
+
+            .form-header h1 {
+                font-size: 16px;
+            }
+
+            .input-field {
+                padding: 9px 11px;
+                font-size: 12px;
+            }
+
+            .submit-btn {
+                padding: 10px;
+                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background animated circles -->
     <div class="bg-circle"></div>
     <div class="bg-circle"></div>
 
     <div class="main-container">
-        <!-- Left Section - Learning Illustration -->
         <div class="illustration-section">
             <div class="book-illustration">
                 <div class="float-circle"></div>
@@ -518,7 +652,6 @@
             </div>
         </div>
 
-        <!-- Right Section - Registration Form -->
         <div class="form-section">
             <div class="form-header">
                 <h1>Create Your Account</h1>
@@ -639,14 +772,14 @@
             }
             
             if (password !== confirmPassword) {
-                errorMessage.textContent = 'Passwords do not match! Please try again.';
+                errorMessage.textContent = 'Passwords do not match!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw-repeat').focus();
                 return false;
             }
 
             if (password.length < 6) {
-                errorMessage.textContent = 'Password must be at least 6 characters long!';
+                errorMessage.textContent = 'Password must be at least 6 characters!';
                 errorMessage.style.display = 'block';
                 document.getElementById('psw').focus();
                 return false;
@@ -654,11 +787,8 @@
             
             successMessage.textContent = 'Registration Successful! Welcome, ' + name + '!';
             successMessage.style.display = 'block';
-            
-            // Uncomment to submit: this.submit();
         });
 
-        // Real-time validation
         inputs.forEach(input => {
             input.addEventListener('blur', function() {
                 if (this.value) {
