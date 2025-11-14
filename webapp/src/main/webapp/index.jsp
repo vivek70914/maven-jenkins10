@@ -1,7 +1,7 @@
 <form action="action_page.php">
   <div class="container">
-    <h1>New user Register for training -vivek pagi Build This Pipeline.</h1>
-    <p>Deploy on Tomact using Deploy Job automatically</p>
+    <h1>New user Register for training -vivek pagi Build This Pipeline through docker image.</h1>
+    <p>Deploy using docker image automatically</p>
     <hr>
      
     <label for="Name"><b>Enter Name</b></label>
